@@ -111,3 +111,21 @@ License
 -------
 
 GPL-3
+
+or Editing docker volume:
+
+version: ‘3’
+services: 
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    restart: always
+    privileged: true
+    user: root
+    ports: 
+      - 8080:8080
+      - 50000:50000
+    container_name: jinkins
+    volumes:
+       - /home/node/Documents/Devops2k24/jenkins/jenkins-configuration:/var/jenkins_home/
+       - /var/run/docker.sock:/var/run/docker.sock
+
